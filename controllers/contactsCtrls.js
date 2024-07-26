@@ -1,7 +1,7 @@
 
 // const contacts = require("../models/contacts");
 
-const ContactMongoose = require("../models/contacts");
+const { ContactMongoose } = require("../models/contacts");
 
 // const { HttpError } = require("../helpers/HttpError");   ЭТО НУЖНО!!!!!!
 const ctrlWrapper = require("../helpers/ctrlWrapper");
@@ -24,13 +24,13 @@ const listContactsCtrls = async (req, res) => {
   
 // }
 
-// const addContactCtrls = async (req, res) => {
+ const addContactCtrls = async (req, res) => {
   
     
-//     const result = await contacts.addContact(req.body);
-//     res.status(201).json(result);
+     const result = await ContactMongoose.create(req.body);
+     res.status(201).json(result);
   
-// }
+ }
 
 // const removeContactCtrls = async (req, res) => {
 //     const { id } = req.params;
@@ -57,7 +57,7 @@ const listContactsCtrls = async (req, res) => {
 module.exports = {
   listContactsCtrls: ctrlWrapper(listContactsCtrls),
   // getContactByIdCtrls: ctrlWrapper(getContactByIdCtrls),
-  // addContactCtrls: ctrlWrapper(addContactCtrls),
+   addContactCtrls: ctrlWrapper(addContactCtrls),
   // removeContactCtrls: ctrlWrapper(removeContactCtrls),
   // updateContactCtrls: ctrlWrapper(updateContactCtrls),
 }
