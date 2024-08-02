@@ -29,7 +29,7 @@ const contactsSchema = Schema({
       type: Boolean,
       default: false,
     },
-}, { versionKey: false })
+}, { versionKey: false, collection: 'contacts_modified' })
 
 contactsSchema.post("save", handleMongooseError)
 
@@ -49,7 +49,7 @@ const schemas = {
   updateFavoriteSchema,
 }
 
-const ContactMongoose = model("contact", contactsSchema);
+const ContactMongoose = model("contacts_modified", contactsSchema);
 
 // const listContacts = async () => {
 //   const data = await fs.readFile(contactsPath);
