@@ -1,5 +1,4 @@
 
-// const contacts = require("../models/contacts");
 
 const { ContactMongoose } = require("../models/contacts");
 
